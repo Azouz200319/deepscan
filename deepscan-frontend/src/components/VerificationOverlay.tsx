@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, CheckCircle2, XCircle, AlertTriangle, User, GraduationCap, MapPin, Calendar, BookOpen, School, Tag, ShieldCheck, AlertOctagon, Fingerprint } from 'lucide-react';
+import { X, CheckCircle2, XCircle, AlertTriangle, User, GraduationCap, School, Tag, ShieldCheck, AlertOctagon, Fingerprint } from 'lucide-react';
 
 interface VerificationData {
   id: string;

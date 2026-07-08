@@ -79,36 +79,36 @@ export default function VerificationOverlay({ isOpen, student, onClose }: Verifi
   const isFieldMismatched = (key: string) => diffFields.includes(key);
 
   const containerVariants = {
-    hidden: { opacity: 0, scale: 0.95, y: 20 },
-    visible: { 
-      opacity: 1, 
-      scale: 1, 
-      y: 0,
-      transition: {
-        duration: 0.4,
-        ease: [0.16, 1, 0.3, 1]
-      }
-    },
-    exit: { 
-      opacity: 0, 
-      scale: 0.95, 
-      y: 20,
-      transition: { duration: 0.3 }
+  hidden: { opacity: 0, scale: 0.95, y: 20 },
+  visible: { 
+    opacity: 1, 
+    scale: 1, 
+    y: 0,
+    transition: {
+      duration: 0.4,
+      ease: [0.16, 1, 0.3, 1] as [number, number, number, number]
     }
-  };
+  },
+  exit: { 
+    opacity: 0, 
+    scale: 0.95, 
+    y: 20,
+    transition: { duration: 0.3 }
+  }
+};
 
-  const sectionVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: (i: number) => ({
-      opacity: 1,
-      y: 0,
-      transition: {
-        delay: i * 0.1,
-        duration: 0.4,
-        ease: [0.16, 1, 0.3, 1]
-      }
-    })
-  };
+const sectionVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.1,
+      duration: 0.4,
+      ease: [0.16, 1, 0.3, 1] as [number, number, number, number]
+    }
+  })
+};
 
   return (
     <AnimatePresence mode="wait">

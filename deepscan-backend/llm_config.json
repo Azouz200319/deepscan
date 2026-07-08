@@ -1,0 +1,7 @@
+{
+  "provider": "groq",
+  "ollama_url": "http://localhost:11434/api/generate",
+  "ollama_model": "llama3.2",
+  "groq_api_key": "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",
+  "groq_model": "llama-3.3-70b-versatile"
+}

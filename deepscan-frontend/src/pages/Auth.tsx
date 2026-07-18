@@ -7,7 +7,10 @@ import { OwlLogo } from '../components/OwlLogo';
 export function Auth() {
   const navigate = useNavigate();
   const { login, register, isLoading, error, token } = useAuth();
-  const [isLogin, setIsLogin] = useState(true);
+  const [isLogin, setIsLogin] = useState(false);
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [birthdate, setBirthdate] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [localError, setLocalError] = useState('');
@@ -27,7 +30,7 @@ export function Auth() {
       if (isLogin) {
         await login(email, password);
       } else {
-        await register(email, password);
+        await register(email, password, firstName, lastName, birthdate);
       }
     } catch (err) {
       setLocalError(err instanceof Error ? err.message : 'An error occurred');
@@ -68,16 +71,6 @@ export function Auth() {
         {/* Tab Switcher */}
         <div className="flex gap-2 bg-slate-100 dark:bg-slate-950/50 rounded-2xl p-1.5 border border-slate-200 dark:border-white/5">
           <button
-            onClick={() => setIsLogin(true)}
-            className={`flex-1 py-3 px-4 rounded-xl transition-all text-xs font-black uppercase tracking-widest flex items-center justify-center gap-2 ${isLogin 
-              ? 'bg-white dark:bg-slate-800 text-brand-600 dark:text-white shadow-[0_4px_12px_rgba(0,0,0,0.1)]' 
-              : 'text-slate-800 dark:text-slate-700 hover:text-brand-500 dark:hover:text-white hover:bg-white/50 dark:hover:bg-white/5'
-            }`}
-          >
-            <LogIn className="w-4 h-4" />
-            Sign In
-          </button>
-          <button
             onClick={() => setIsLogin(false)}
             className={`flex-1 py-3 px-4 rounded-xl transition-all text-xs font-black uppercase tracking-widest flex items-center justify-center gap-2 ${!isLogin 
               ? 'bg-white dark:bg-slate-800 text-brand-600 dark:text-white shadow-[0_4px_12px_rgba(0,0,0,0.1)]' 
@@ -86,6 +79,16 @@ export function Auth() {
           >
             <UserPlus className="w-4 h-4" />
             Register
+          </button>
+          <button
+            onClick={() => setIsLogin(true)}
+            className={`flex-1 py-3 px-4 rounded-xl transition-all text-xs font-black uppercase tracking-widest flex items-center justify-center gap-2 ${isLogin 
+              ? 'bg-white dark:bg-slate-800 text-brand-600 dark:text-white shadow-[0_4px_12px_rgba(0,0,0,0.1)]' 
+              : 'text-slate-800 dark:text-slate-700 hover:text-brand-500 dark:hover:text-white hover:bg-white/50 dark:hover:bg-white/5'
+            }`}
+          >
+            <LogIn className="w-4 h-4" />
+            Sign In
           </button>
         </div>
 
@@ -100,6 +103,44 @@ export function Auth() {
         {/* Form */}
         <form onSubmit={handleSubmit} className="space-y-5">
 
+          {!isLogin && (
+            <>
+              <div className="group">
+                <label className="block text-[10px] font-black text-slate-800 dark:text-slate-700 uppercase tracking-widest mb-2 ml-1">First Name</label>
+                <input
+                  type="text"
+                  value={firstName}
+                  required
+                  onChange={(e) => setFirstName(e.target.value)}
+                  className="w-full px-5 py-4 bg-slate-50 dark:bg-slate-950/50 border border-slate-200 dark:border-slate-800 rounded-2xl text-slate-900 dark:text-white placeholder-slate-400 transition-all focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500"
+                  placeholder="Jane"
+                />
+              </div>
+
+              <div className="group">
+                <label className="block text-[10px] font-black text-slate-800 dark:text-slate-700 uppercase tracking-widest mb-2 ml-1">Last Name</label>
+                <input
+                  type="text"
+                  value={lastName}
+                  required
+                  onChange={(e) => setLastName(e.target.value)}
+                  className="w-full px-5 py-4 bg-slate-50 dark:bg-slate-950/50 border border-slate-200 dark:border-slate-800 rounded-2xl text-slate-900 dark:text-white placeholder-slate-400 transition-all focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500"
+                  placeholder="Doe"
+                />
+              </div>
+
+              <div className="group">
+                <label className="block text-[10px] font-black text-slate-800 dark:text-slate-700 uppercase tracking-widest mb-2 ml-1">Birthdate</label>
+                <input
+                  type="date"
+                  value={birthdate}
+                  required
+                  onChange={(e) => setBirthdate(e.target.value)}
+                  className="w-full px-5 py-4 bg-slate-50 dark:bg-slate-950/50 border border-slate-200 dark:border-slate-800 rounded-2xl text-slate-900 dark:text-white placeholder-slate-400 transition-all focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500"
+                />
+              </div>
+            </>
+          )}
 
           <div className="group">
             <label className="block text-[10px] font-black text-slate-800 dark:text-slate-700 uppercase tracking-widest mb-2 ml-1">Email Address</label>

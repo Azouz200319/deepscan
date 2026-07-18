@@ -48,7 +48,7 @@ interface AuthState {
 
 interface AuthContextType extends AuthState {
   login: (email: string, password: string) => Promise<void>;
-  register: (email: string, password: string) => Promise<void>;
+  register: (email: string, password: string, firstName?: string, lastName?: string, birthdate?: string) => Promise<void>;
   logout: () => void;
   loadDomains: () => Promise<void>;
   loadFilieres: (domainId: string) => Promise<void>;
@@ -114,14 +114,14 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     }
   };
 
-  const register = async (email: string, password: string) => {
+  const register = async (email: string, password: string, firstName?: string, lastName?: string, birthdate?: string) => {
     setIsLoading(true);
     setError(null);
     try {
       const response = await fetch(`${API_URL}/api/auth/register`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ email, password, first_name: firstName, last_name: lastName, birthdate }),
       });
 
       if (!response.ok) {

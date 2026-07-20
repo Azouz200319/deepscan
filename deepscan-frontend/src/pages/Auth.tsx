@@ -106,26 +106,26 @@ export function Auth() {
           {!isLogin && (
             <>
               <div className="group">
-                <label className="block text-[10px] font-black text-slate-800 dark:text-slate-700 uppercase tracking-widest mb-2 ml-1">First Name</label>
+                <label className="block text-[10px] font-black text-slate-800 dark:text-slate-700 uppercase tracking-widest mb-2 ml-1">Nom</label>
                 <input
                   type="text"
                   value={firstName}
                   required
                   onChange={(e) => setFirstName(e.target.value)}
                   className="w-full px-5 py-4 bg-slate-50 dark:bg-slate-950/50 border border-slate-200 dark:border-slate-800 rounded-2xl text-slate-900 dark:text-white placeholder-slate-400 transition-all focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500"
-                  placeholder="Jane"
+                  placeholder="Nom"
                 />
               </div>
 
               <div className="group">
-                <label className="block text-[10px] font-black text-slate-800 dark:text-slate-700 uppercase tracking-widest mb-2 ml-1">Last Name</label>
+                <label className="block text-[10px] font-black text-slate-800 dark:text-slate-700 uppercase tracking-widest mb-2 ml-1">Prénom</label>
                 <input
                   type="text"
                   value={lastName}
                   required
                   onChange={(e) => setLastName(e.target.value)}
                   className="w-full px-5 py-4 bg-slate-50 dark:bg-slate-950/50 border border-slate-200 dark:border-slate-800 rounded-2xl text-slate-900 dark:text-white placeholder-slate-400 transition-all focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500"
-                  placeholder="Doe"
+                  placeholder="Prénom"
                 />
               </div>
 

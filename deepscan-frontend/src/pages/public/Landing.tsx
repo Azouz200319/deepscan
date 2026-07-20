@@ -38,17 +38,18 @@ export default function Landing() {
             powering the <span className="text-brand-500 font-bold">4th Generation of Universities</span> for a secure digital future.
           </p>
 
+          <div className="mb-6 text-center">
+            <p className="text-base md:text-lg font-semibold text-slate-700 dark:text-slate-300">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 via-fuchsia-500 to-emerald-400">
+                Hi there,
+              </span> explore secure document verification with DeepScan.
+            </p>
+          </div>
+
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
-              to="/demo"
-              className="px-8 py-4 rounded-full text-white font-bold bg-brand-500 hover:bg-brand-600 shadow-[0_20px_40px_rgba(59,130,246,0.25)] transition-all hover:scale-105 flex items-center gap-2 w-full sm:w-auto justify-center"
-            >
-              Try Free Demo
-              <ArrowRight className="w-5 h-5" />
-            </Link>
-            <Link
               to="/auth"
-              className="px-8 py-4 rounded-full text-slate-700 dark:text-slate-200 font-semibold bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-brand-500 transition-all shadow-sm w-full sm:w-auto justify-center flex"
+              className="px-8 py-4 rounded-full text-white font-bold bg-brand-500 hover:bg-brand-600 shadow-[0_20px_40px_rgba(59,130,246,0.25)] transition-all hover:scale-105 flex items-center gap-2 w-full sm:w-auto justify-center"
             >
               Get Started
             </Link>

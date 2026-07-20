@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ShieldCheck, Zap, Scan, ArrowRight } from 'lucide-react';
+import { ShieldCheck, Zap, Scan, } from 'lucide-react';
 import { ForensicVisual } from '../../components/ForensicVisual';
 
 export default function Landing() {
